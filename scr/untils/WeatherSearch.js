@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, TextInput, alert} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const WeatherSearch = props => {
+const WeatherSearch = ({weatherData, fetchWeatherData}) => {
   const [cityName, setCityName] = useState('');
 
   searchCity = () => {
@@ -19,7 +19,7 @@ const WeatherSearch = props => {
         size={24}
         color="#000"
         // onPress={searchCity}
-        onPress={() => props.fetchWeatherData(cityName)}
+        onPress={() => fetchWeatherData(cityName)}
       />
       <TextInput
         style={styles.input}

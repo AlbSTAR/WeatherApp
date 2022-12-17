@@ -9,23 +9,25 @@ import {
 } from 'react-native';
 import WeatherSearch from './WeatherSearch';
 
-const WeatherInfo = props => {
+const WeatherInfo = ({weatherData, fetchWeatherData}) => {
   const {
     name,
     visibility,
     weather: [{icon, description}],
     wind: {speed},
     main: {temp, humidity, feels_like},
-    sys: {sunrise, sunset},
-  } = props.weatherData;
+    sys: {sunrise, sunset, country},
+  } = weatherData;
   return (
     <View style={styles.container}>
       <WeatherSearch
-        weatherdata={props.weatherData}
-        fetchWeatherData={props.fetchWeatherData}
+        weatherdata={weatherData}
+        fetchWeatherData={fetchWeatherData}
       />
       <View style={{alignItems: 'center'}}>
-        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.title}>
+          {name},{country}
+        </Text>
       </View>
       <View style={styles.logo}>
         <Image
