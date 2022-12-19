@@ -7,7 +7,7 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import WeatherSearch from './WeatherSearch';
+
 import WeatherScroll from './WeatherScroll';
 
 const WeatherInfo = ({weatherData, fetchWeatherData}) => {
@@ -21,10 +21,6 @@ const WeatherInfo = ({weatherData, fetchWeatherData}) => {
   } = weatherData;
   return (
     <View style={styles.container}>
-      <WeatherSearch
-        weatherdata={weatherData}
-        fetchWeatherData={fetchWeatherData}
-      />
       <View style={styles.mainTable}>
         <View style={styles.tableHeader}>
           <View style={styles.mainHead}>
