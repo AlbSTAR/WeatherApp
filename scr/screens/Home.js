@@ -2,6 +2,7 @@ import {async} from '@firebase/util';
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, Alert, ActivityIndicator} from 'react-native';
 import WeatherInfo from '../untils/WeatherInfo';
+import WeatherScroll from '../untils/WeatherScroll';
 
 const API_KEY = '84af2301d51ed2cdbf7cc2574c95da04';
 const HomeScreen = () => {
@@ -43,7 +44,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Weather</Text>
+        {/* <Text style={styles.headerTitle}></Text> */}
       </View>
       <WeatherInfo
         weatherData={weatherData}
@@ -54,11 +55,14 @@ const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  headerTitle: {
-    color: '#4263eb',
-    fontSize: 30,
-    fontWeight: 'bold',
+  container: {
+    flex: 1,
   },
+  // headerTitle: {
+  //   color: '#4263eb',
+  //   fontSize: 30,
+  //   fontWeight: 'bold',
+  // },
 });
 
 export default HomeScreen;
