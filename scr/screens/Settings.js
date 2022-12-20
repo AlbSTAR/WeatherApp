@@ -22,10 +22,14 @@ const SettingsScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Settings</Text>
-      <TouchableOpacity onPress={() => firebase.auth().signOut()}>
-        <FontAwesome5 name="sign-out-alt" color="black" size={40} />
-        <Text style={{fontSize: 22, fontWeight: 'bold'}}>Log Out</Text>
-      </TouchableOpacity>
+      <View style={styles.content}>
+        <TouchableOpacity onPress={() => firebase.auth().signOut()}>
+          <FontAwesome5 name="sign-out-alt" color="#495057" size={90} />
+          <Text style={{fontSize: 24, color: '#1c7ed6', fontWeight: 'bold'}}>
+            Log Out
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -37,8 +41,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 40,
     color: '#fff',
-    backgroundColor: '#000',
+    backgroundColor: '#343a40',
     textAlign: 'center',
+    padding: 10,
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

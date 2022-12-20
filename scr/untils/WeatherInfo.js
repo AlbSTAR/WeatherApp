@@ -31,7 +31,9 @@ const WeatherInfo = ({weatherData, fetchWeatherData}) => {
           </View>
           <Image
             style={styles.largeIcon}
-            source={{uri: `https://openweathermap.org/img/wn/${icon}.png`}}
+            source={{
+              uri: `https://openweathermap.org/img/wn/${icon}.png`,
+            }}
           />
         </View>
         <View style={styles.extraInfo}>
