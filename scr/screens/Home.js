@@ -84,7 +84,7 @@ const HomeScreen = () => {
                 <Pressable
                   onPress={() => setShowWarning(false)}
                   style={styles.warningButton}
-                  android_ripple={{color: '#fff'}}>
+                  android_ripple={{color: '#1c7ed6'}}>
                   <Text style={styles.text}>OK</Text>
                 </Pressable>
               </View>
@@ -116,16 +116,19 @@ const styles = StyleSheet.create({
     height: 300,
     backgroundColor: '#ffffff',
     borderWidth: 1,
-    shadowColor: '#000',
     borderRadius: 20,
   },
   modalTitle: {
-    height: 50,
+    height: 70,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#777',
+    backgroundColor: '#ced4da',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
+  },
+  text: {
+    fontSize: 16,
+    color: '#495057',
   },
   warningBody: {
     height: 200,
@@ -133,9 +136,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   warningButton: {
-    fontSize: 30,
-    textAlign: 'center',
-    backgroundColor: '#00ffff',
+    height: 45,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ced4da',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },

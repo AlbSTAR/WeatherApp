@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import WeatherScroll from './WeatherScroll';
+import moment from 'moment-timezone';
 
 const WeatherInfo = ({weatherData, fetchWeatherData}) => {
   const {
@@ -32,7 +33,7 @@ const WeatherInfo = ({weatherData, fetchWeatherData}) => {
           <Image
             style={styles.largeIcon}
             source={{
-              uri: `https://openweathermap.org/img/wn/${icon}.png`,
+              uri: `https://openweathermap.org/img/wn/${icon}@2x.png`,
             }}
           />
         </View>
@@ -57,10 +58,10 @@ const WeatherInfo = ({weatherData, fetchWeatherData}) => {
               <Text style={styles.textInfo}>{speed} m/s</Text>
               <Text style={styles.textInfo}>{visibility}</Text>
               <Text style={styles.textInfo}>
-                {new Date(sunrise * 1000).toLocaleString()}{' '}
+                {moment(sunrise * 1000).format('HH:mm')}
               </Text>
               <Text style={styles.textInfo}>
-                {new Date(sunset * 1000).toLocaleString()}
+                {moment(sunset * 1000).format('HH:mm')}
               </Text>
             </View>
           </View>
@@ -108,8 +109,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  tableDetails: {
-    marginLeft: 7,
+  textDescrition: {
+    marginRight: 18,
   },
   textInfo: {
     fontSize: 16,
