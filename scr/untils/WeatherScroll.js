@@ -2,28 +2,11 @@ import React from 'react';
 import {View, ScrollView, Image, Text, StyleSheet} from 'react-native';
 import FutureForecast from './FutureForcast';
 
-const WeatherScroll = () => {
+const WeatherScroll = ({forecastData}) => {
   return (
     <ScrollView horizontal={true} style={styles.scrollView}>
-      {/* <CurrentTempEl /> */}
-      <FutureForecast />
+      <FutureForecast data={forecastData} />
     </ScrollView>
-  );
-};
-
-const CurrentTempEl = () => {
-  const img = {
-    uri: 'http://openweathermap.org/img/wn/10d@4x.png',
-  };
-  return (
-    <View style={styles.currentTempContainer}>
-      <Image source={img} style={styles.image} />
-      <View style={styles.otherContainer}>
-        <Text style={styles.day}>Sunday</Text>
-        <Text style={styles.temp}>Night - 25</Text>
-        <Text style={styles.temp}>Day - 18 </Text>
-      </View>
-    </View>
   );
 };
 

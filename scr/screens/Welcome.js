@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
-import CostumButton from '../untils/CustumBotton';
+import CostumButton from '../untils/CustumButton';
 
 const WelcomeScreen = ({navigation}) => {
   return (

@@ -11,7 +11,7 @@ import {
 import WeatherScroll from './WeatherScroll';
 import moment from 'moment-timezone';
 
-const WeatherInfo = ({weatherData, fetchWeatherData}) => {
+const WeatherInfo = ({weatherData, fetchWeatherData, forecastData}) => {
   const {
     name,
     visibility,
@@ -67,7 +67,7 @@ const WeatherInfo = ({weatherData, fetchWeatherData}) => {
           </View>
         </View>
       </View>
-      <WeatherScroll />
+      <WeatherScroll forecastData={forecastData} />
     </View>
   );
 };

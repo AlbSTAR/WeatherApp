@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {View, Text, Image, TextInput, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Button} from 'react-native-paper';
-import CostumButton from '../untils/CustumBotton';
+import CostumButton from '../untils/CustumButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {firebase} from '../config/firebase';
 

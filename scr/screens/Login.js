@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React, {useState} from 'react';
 import {View, Text, Image, StyleSheet, Alert, TextInput} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import CostumButton from '../untils/CustumBotton';
+import CostumButton from '../untils/CustumButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {firebase} from '../config/firebase';
 import UserStack from '../navigation/userStack';

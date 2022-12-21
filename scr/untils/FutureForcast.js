@@ -1,27 +1,47 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
+import moment from 'moment-timezone';
 
-const FutureForecast = () => {
+const FutureForecast = ({data}) => {
   return (
     <View style={{flexDirection: 'row'}}>
-      <FutureForecastItem />
-      <FutureForecastItem />
-      <FutureForecastItem />
-      <FutureForecastItem />
+      {data ? (
+        data.list.map(
+          (data, idx) =>
+            (idx === 7 ||
+              idx === 15 ||
+              idx === 23 ||
+              idx === 28 ||
+              idx === 39) && (
+              <FutureForecastItem key={idx} forecastItem={data} />
+            ),
+        )
+      ) : (
+        <View />
+      )}
     </View>
   );
 };
 
-const FutureForecastItem = () => {
+const FutureForecastItem = forecastItem => {
+  const {
+    dt,
+    main: {temp_max},
+    weather: [{description, icon}],
+  } = forecastItem.forecastItem;
   const img = {
-    uri: 'http://openweathermap.org/img/wn/10d@4x.png',
+    uri: `https://openweathermap.org/img/wn/${icon}@2x.png`,
   };
   return (
     <View style={styles.futureForecastItemContainer}>
-      <Text style={styles.day}>Monday</Text>
+      <Text style={styles.day}>
+        {JSON.stringify(moment(dt * 1000).format('ddd'))}
+      </Text>
       <Image source={img} style={styles.image} />
-      <Text style={styles.temp}>Night - 26</Text>
-      <Text style={styles.temp}>Day - 36</Text>
+      <Text style={styles.temp}>{description}</Text>
+      <Text style={styles.temp}>
+        Temp max {Math.trunc(temp_max - 273.15) + '°C'}
+      </Text>
     </View>
   );
 };
@@ -54,7 +74,8 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   temp: {
-    fontSize: 14,
+    fontSize: 15,
+    marginBottom: 5,
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',

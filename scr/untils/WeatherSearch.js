@@ -2,25 +2,16 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, TextInput, alert} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const WeatherSearch = ({weatherData, fetchWeatherData}) => {
+const WeatherSearch = ({weatherData, fetchWeatherData, fetchForecast}) => {
   const [cityName, setCityName] = useState('');
 
-  searchCity = () => {
-    if (props.weatherData.cityName) {
-      props.fetchWeatherData(cityName);
-    } else {
-      console.log('no way');
-    }
+  const searchCity = () => {
+    fetchWeatherData(cityName);
+    fetchForecast(cityName);
   };
   return (
     <View style={styles.searchBar}>
-      <FontAwesome5
-        name="search"
-        size={24}
-        color="#000"
-        // onPress={searchCity}
-        onPress={() => fetchWeatherData(cityName)}
-      />
+      <FontAwesome5 name="search" size={24} color="#000" onPress={searchCity} />
       <TextInput
         style={styles.input}
         placeholder="Search for a city"

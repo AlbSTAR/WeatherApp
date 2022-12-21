@@ -16,6 +16,7 @@ import WeatherSearch from '../untils/WeatherSearch';
 const API_KEY = '84af2301d51ed2cdbf7cc2574c95da04';
 const HomeScreen = () => {
   const [weatherData, setWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [showWarning, setShowWarning] = useState(true);
   const fetchWeatherData = async cityName => {
@@ -35,9 +36,26 @@ const HomeScreen = () => {
       Alert.alert('Error', error.message);
     }
   };
+  const fetchForecast = async cityName => {
+    try {
+      setLoaded(false);
+      const res = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}`,
+      );
+      if (res.status === 200) {
+        const data = await res.json();
+        setForecastData(data);
+      } else {
+        setForecastData(null);
+      }
+    } catch (error) {
+      Alert.alert('Error', error.message);
+    }
+  };
 
   useEffect(() => {
-    fetchWeatherData('London');
+    fetchWeatherData('Gramsh');
+    fetchForecast('Gramsh');
   }, []);
 
   if (!loaded) {
@@ -54,13 +72,15 @@ const HomeScreen = () => {
         <WeatherSearch
           weatherdata={weatherData}
           fetchWeatherData={fetchWeatherData}
+          fetchForecast={fetchForecast}
         />
       </View>
 
-      {weatherData !== null ? (
+      {weatherData !== null && forecastData !== null ? (
         <WeatherInfo
           weatherData={weatherData}
           fetchWeatherData={fetchWeatherData}
+          forecastData={forecastData}
         />
       ) : (
         <View style={styles.body}>
