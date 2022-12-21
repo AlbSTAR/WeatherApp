@@ -1,7 +1,5 @@
 import 'react-native-gesture-handler';
 import React, {useState, useEffect} from 'react';
-
-import RootNavigation from './scr/navigation/rootNav';
 import AuthStack from './scr/navigation/authStack';
 import UserStack from './scr/navigation/userStack';
 import {firebase} from './scr/config/firebase';
